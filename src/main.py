@@ -5,6 +5,10 @@ import pandas as pd
 import time as timer #change the name to avoid erros with time from datetime
 import datetime
 from datetime import datetime, date, time
+
+# Plotting 
+import matplotlib.pyplot as plt
+from personal_functions import create_graphs
 # # Security
 # from google.colab import files
 # from oauth2client.service_account import ServiceAccountCredentials
@@ -32,5 +36,12 @@ for i in range(len(kw_list)):
         #print(kw_list[i],kw_list[i+1])
         pytrends.build_payload(kw_list[i], cat=kw_list[i+1],timeframe='today 5-y', geo='ES', gprop='')
         interest_over_time_df = pytrends.interest_over_time() 
-        print(interest_over_time_df.head())
-
+        #print(interest_over_time_df.head())
+           #plt.figure()
+        dx = interest_over_time_df.plot.line( figsize = (9,6), title =str(kw_list[i]))
+        dx.set_xlabel('Date')
+        dx.set_ylabel('Trends Index')
+        dx.tick_params(axis='both', which='major', labelsize=13)
+        plt.show()
+        #plt.savefig('../output/{}.png'.format(i))
+        
