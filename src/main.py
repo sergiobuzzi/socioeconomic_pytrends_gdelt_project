@@ -1,4 +1,5 @@
 # Libraries
+import random
 import pytrends
 from pytrends.request import TrendReq
 import pandas as pd
@@ -24,14 +25,16 @@ from personal_functions import create_graphs
 #this works
 pytrends = TrendReq(hl='ES', tz=0)
 kw_list = [
-    ["empleo","desempleo","hipoteca"],19,
-    ["centro de salud","hospital","coronavirus"],45,
+    ["empleo","desempleo","hipoteca","credito"],19,
+    ["erte","ere"],19,
+    ["centro de salud","hospital","coronavirus","ets","gripe"],45,
     ["corrupcion","juicio","politica"],19
     ]
 for i in range(len(kw_list)):
     if i%2==0:
-        print("Sleep 10 seconds between requesting ",str(kw_list[i]))
-        timer.sleep(10)
+        secs=int(random.randrange(10, 50))
+        print("Sleep {} seconds between requesting ".format(secs),str(kw_list[i]))
+        timer.sleep(secs)
         print("Done")
         #print(kw_list[i],kw_list[i+1])
         pytrends.build_payload(kw_list[i], cat=kw_list[i+1],timeframe='today 5-y', geo='ES', gprop='')
@@ -42,6 +45,6 @@ for i in range(len(kw_list)):
         dx.set_xlabel('Date')
         dx.set_ylabel('Trends Index')
         dx.tick_params(axis='both', which='major', labelsize=13)
-        plt.show()
-        #plt.savefig('../output/{}.png'.format(i))
-        
+        plt.savefig('./output/{}.png'.format(str(kw_list[i])))
+        #plt.show()
+
