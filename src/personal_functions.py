@@ -1,8 +1,7 @@
-def create_graphs(df):
-    '''under construction''' 
-    #plt.figure()
-    dx = df.plot.line( figsize = (9,6), title ="ey")
+def plotting_keywords(interest_over_time_df,kw_list[i])
+    dx = interest_over_time_df.plot.line( figsize = (9,6), title =str(kw_list[i]))
     dx.set_xlabel('Date')
     dx.set_ylabel('Trends Index')
     dx.tick_params(axis='both', which='major', labelsize=13)
-    plt.show()
+    plt.savefig('./output/{}.png'.format(str(kw_list[i])))
+    #plt.show()
