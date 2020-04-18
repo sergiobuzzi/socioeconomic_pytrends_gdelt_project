@@ -22,6 +22,8 @@ Google trends searches the maximum on the specified period, makes that maximum t
     6. Habits: Comida a domicilio, hacer deporte, yoga, meditación.
     7. Improvement: Teletrabajo, videollamada, videoconferencia, cursos online.
 
+    We have our reasons to not include keyword category within the code, in spite of it could be an accuracy improvement for keywords like "teams".
+
 - Deploy the scripts on Google Cloud Function. Why this folder has this structure can be found here:
 
         https://github.com/albertovpd/pytrends_cloud_function_example 
