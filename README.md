@@ -10,37 +10,40 @@ Google trends searches the maximum on the specified period, makes that maximum t
 
 - If you request each of your keywords separately, each keyword will be averaged on time by its own top.
 
-# Project pipeline:
+
+# Project pipeline, how to:
 
 ### Create a new project and get your credentials here:
 
                 https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts?_ga=2.187077160.1256540572.1587286598-806021438.1579453370&pli=1&supportedpurview=project
 
-        - Service Account: Give it a nice name
-        - Grant this service account access to the project: Just the required roles for Cloud Storage and Cloud Function.
+- Service Account: Give it a nice name
+- Grant this service account access to the project: Just the required roles for Cloud Storage and Cloud Function.
+
 
 ### Create a bucket in Cloud Storage
 
                 https://console.cloud.google.com/storage/create-bucket?
         
-        - Configure it: Due to our requirements we will use region location, but be careful, it can give you a hard headache, mainly if working with BigQuery or data from other regions that are not your selected one. Always locate all buckets where all data sources you are using for the same project. 
+- Configure it: Due to our requirements we will use region location, but be careful, it can give you a hard headache, mainly if working with BigQuery or data from other regions that are not your selected one. Always locate all buckets where all data sources you are using for the same project. 
+
 
 ### Pytrends (keywords without accents or capital letters):
 
-    1. Videocalls: Zoom, Teams, Skype, Hangouts.
-    2. Messaging apps: WhatsApp, Telegram, Viber, Tiktok.
-    3. Politics: refugiados, inmigración, nacionalismo, corrupción, juicio, guerra comercial.
-    4. Health: coronavirus, pandemia, infeccion, médico.
-    5. Services: Amazon, Netflix, HBO, Rakuten, Steam, Cabify, taxi, Glovo, Just Eat, Deliveroo, Uber Eats.
-    6. Habits: Comida a domicilio, hacer deporte, yoga, meditación.
-    7. Improvement: Teletrabajo, videollamada, videoconferencia, cursos online.
+    - Videocalls: Zoom, Teams, Skype, Hangouts.
+    - Messaging apps: WhatsApp, Telegram, Viber, Tiktok.
+    - Politics: refugiados, inmigración, nacionalismo, corrupción, juicio, guerra comercial.
+    - Health: coronavirus, pandemia, infeccion, médico.
+    - Services: Amazon, Netflix, HBO, Rakuten, Steam, Cabify, taxi, Glovo, Just Eat, Deliveroo, Uber Eats.
+    - Habits: Comida a domicilio, hacer deporte, yoga, meditación.
+    - Improvement: Teletrabajo, videollamada, videoconferencia, cursos online.
 
-    We have our reasons to not include keyword category within the code, in spite of it could be an accuracy improvement for keywords like "teams".
+We have our reasons to not include keyword category within the code, in spite of it could be an accuracy improvement for keywords like "teams".
 
 
 Why this folder has this structure can be found here:
 
-        https://github.com/albertovpd/pytrends_cloud_f
+        https://github.com/albertovpd/pytrends_cloud_function_example
 
 ### Deploy the scripts on Google Cloud Function:
 
@@ -65,9 +68,6 @@ Why this folder has this structure can be found here:
 
 The result can be found here: (not yet)
 
----------------------------
-
-- In case you are starting to build it, there are extra scripts that will hepl you. Once everything runs fine, you will not need gcsfs credentials in the Cloud Function (Google already knows your mail and creds)
 
 -----------------------------
 
@@ -93,14 +93,17 @@ The result can be found here: (not yet)
 --------------------------------
 
 
-Project by César Castares and Alberto Vargas and Mr. Science Dog.
+Project by César Castares and Alberto Vargas.
 
 César:
+
         https://www.linkedin.com/in/cesar-castanon/
 
 Alberto:
+
         https://www.linkedin.com/in/alberto-vargas-pina/
 
-Mr. Science Dog:
+
+
 ![alt](mrdogscience.jpeg " ")
 

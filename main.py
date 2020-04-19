@@ -50,22 +50,11 @@ def main (data,context):
         return result
 
     df_keywords=tracking_in_time_keywords(keywords)
+    df_keywords.to_csv("../tmp/data_pytrends.csv")
 
-    # send go gcs
-
-    # working locally, you will need the line below and upload_gcs.py
-    #df_keywords.to_csv("../tmp/data_pytrends.csv")
-    df_keywords.to_csv(os.getenv(PROJECT_PATH))
-
-    # remove from tmp folder
-    only_csv = [f for f in listdir("../tmp") if isfile(join("../tmp", f))]
-    # remove them
-    [os.remove("../tmp/{}".format(e)) for e in only_csv]
-    print(only_csv," removed ../tmp folder limpito") 
-    # processes= ("upload_gcs.py","remove_files.py")
-    #list of csv in tmp folder
-    # for p in processes:
-    #     exec(open(p).read())
+    processes= ("upload_gcs.py","remove_files.py")
+    for p in processes:
+        exec(open(p).read())
 
 if __name__ == "__main__":
   
