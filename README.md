@@ -12,20 +12,20 @@ Google trends searches the maximum on the specified period, makes that maximum t
 
 # Project pipeline:
 
-- Create a new project and get your credentials here:
+### Create a new project and get your credentials here:
 
                 https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts?_ga=2.187077160.1256540572.1587286598-806021438.1579453370&pli=1&supportedpurview=project
 
         - Service Account: Give it a nice name
         - Grant this service account access to the project: Just the required roles for Cloud Storage and Cloud Function.
 
-- Create a bucket in Cloud Storage
+### Create a bucket in Cloud Storage
 
                 https://console.cloud.google.com/storage/create-bucket?
         
         - Configure it: Due to our requirements we will use region location, but be careful, it can give you a hard headache, mainly if working with BigQuery or data from other regions that are not your selected one. Always locate all buckets where all data sources you are using for the same project. 
 
-- Pytrends (keywords without accents or capital letters):
+### Pytrends (keywords without accents or capital letters):
 
     1. Videocalls: Zoom, Teams, Skype, Hangouts.
     2. Messaging apps: WhatsApp, Telegram, Viber, Tiktok.
@@ -37,13 +37,39 @@ Google trends searches the maximum on the specified period, makes that maximum t
 
     We have our reasons to not include keyword category within the code, in spite of it could be an accuracy improvement for keywords like "teams".
 
-- Deploy the scripts on Google Cloud Function. Why this folder has this structure can be found here:
 
-        https://github.com/albertovpd/pytrends_cloud_function_example 
+Why this folder has this structure can be found here:
 
-- Use Google Pub/Sub to write periodically on Cloud Storage.
+        https://github.com/albertovpd/pytrends_cloud_f
 
-- Link Cloud Storage to Data Studio to have an automated dashboard of our keywords.
+### Deploy the scripts on Google Cloud Function:
+
+1. Create a function here
+        
+                https://console.cloud.google.com/functions/add?
+         
+2. Trigger: Pub/sub
+3. Give a name to your pub/sub topic
+4. Runtime: Python 3.7
+5. Stage bucket: The bucket you created in GCS
+6. Advanced options, Region: Select the same region than the created bucket in GCS (this is very important) 
+
+### Go to Cloud Scheduler to schedule your topic
+
+                https://console.cloud.google.com/cloudscheduler/appengine
+
+1. Select the same region than all before
+2. Follow instructions and check your cronjob works :)
+
+### Link Cloud Storage to Data Studio to have an automated dashboard of our keywords.
+
+The result can be found here: (not yet)
+
+---------------------------
+
+- In case you are starting to build it, there are extra scripts that will hepl you. Once everything runs fine, you will not need gcsfs credentials in the Cloud Function (Google already knows your mail and creds)
+
+-----------------------------
 
 # Further improvements:
 

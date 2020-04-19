@@ -8,6 +8,8 @@ import os
 import gcsfs
 import pandas as pd
 
+# this is while working out of the cloud function, for debugging or planning
+
 # CREDENTIALS
 fs = gcsfs.GCSFileSystem(token=os.getenv("TOKEN_NAME"), project=os.getenv("PROJECT_NAME"))
 
