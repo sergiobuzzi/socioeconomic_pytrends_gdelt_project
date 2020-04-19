@@ -1,16 +1,15 @@
+# processes
 import runpy
 import os
 from os import listdir
 from os.path import isfile, join
-
+# libraries
 import gcsfs
 import pandas as pd
 import random
 import pytrends
 from pytrends.request import TrendReq
-
 from datetime import datetime, date, time, timedelta
-
 
 def main (data,context):
 
@@ -20,9 +19,6 @@ def main (data,context):
     yesterday=(datetime.now()-timedelta(days=1)).date()
     dates="2019-01-01"+" "+str(yesterday) 
     print(dates)
-    #--------------------------------------
-    # keywords (no more than 5 in the same sublist, and read perfectly the documentation of pytrends!)
-    #--------------------------------------
     keywords=[
         "zoom","teams","skype","hangouts",
         "whatsapp", "telegram","viber", "tiktok",
@@ -43,7 +39,6 @@ def main (data,context):
             try:
                 print("Requesting ",[k])
                 pytrends.build_payload([k], timeframe=dates, geo='ES', gprop='')
-                
                 future_dataframe[c]=pytrends.interest_over_time() 
                 future_dataframe[c].drop(['isPartial'], axis=1,inplace=True)
                 c+=1
@@ -51,17 +46,16 @@ def main (data,context):
             except:
                 print("***","\n","Error with ",k,"or not enough trending percentaje","\n","***")
 
-        result
+        result.columns = result.columns.droplevel(0)
         return result
 
     df_keywords=tracking_in_time_keywords(keywords)
-    df_keywords.to_csv("data.csv")
+    df_keywords.to_csv("../tmp/data_pytrends.csv")
 
+    processes= ("upload_gcs.py","remove_files.py")
 
-    # processes= ("upload_gcs.py","remove_files.py")
-
-    # for p in processes:
-    #     exec(open(p).read())
+    for p in processes:
+        exec(open(p).read())
 
 if __name__ == "__main__":
   

@@ -12,6 +12,19 @@ Google trends searches the maximum on the specified period, makes that maximum t
 
 # Project pipeline:
 
+- Create a new project and get your credentials here:
+
+                https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts?_ga=2.187077160.1256540572.1587286598-806021438.1579453370&pli=1&supportedpurview=project
+
+        - Service Account: Give it a nice name
+        - Grant this service account access to the project: Just the required roles for Cloud Storage and Cloud Function.
+
+- Create a bucket in Cloud Storage
+
+                https://console.cloud.google.com/storage/create-bucket?
+        
+        - Configure it: Due to our requirements we will use region location, but be careful, it can give you a hard headache, mainly if working with BigQuery or data from other regions that are not your selected one. Always locate all buckets where all data sources you are using for the same project. 
+
 - Pytrends (keywords without accents or capital letters):
 
     1. Videocalls: Zoom, Teams, Skype, Hangouts.
@@ -34,9 +47,9 @@ Google trends searches the maximum on the specified period, makes that maximum t
 
 # Further improvements:
 
-Use the **deep sentiment analysis** of Gdelt Project to research the news media on Spain about further keywords ( https://www.gdeltproject.org ) with BigQuery  , but from the point of what people are looking for, not just what appears in the news.
+- Use the **deep sentiment analysis** of Gdelt Project to research the news media on Spain about further keywords ( https://www.gdeltproject.org ) with BigQuery  , but from the point of what people are looking for, not just what appears in the news.
 
-Use other Python APis to track Stock Markets on time.
+- Use other Python APis to track Stock Markets on time.
 
 
 # Documentation:
@@ -51,7 +64,10 @@ Use other Python APis to track Stock Markets on time.
 - A great tutorial https://searchengineland.com/learn-how-to-chart-and-track-google-trends-in-data-studio-using-python-329119
 
 
-Project by César Castares and Alberto Vargas.
+--------------------------------
+
+
+Project by César Castares and Alberto Vargas and Mr. Science Dog.
 
 César:
         https://www.linkedin.com/in/cesar-castanon/
@@ -59,7 +75,6 @@ César:
 Alberto:
         https://www.linkedin.com/in/alberto-vargas-pina/
 
-Our leader mr Dog Science:
-
+Mr. Science Dog:
 ![alt](mrdogscience.jpeg " ")
 
