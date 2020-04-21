@@ -1,4 +1,5 @@
 # libraries
+import os
 import gcsfs
 import pandas as pd
 import random
@@ -13,13 +14,14 @@ yesterday=(datetime.now()-timedelta(days=1)).date()
 dates="2019-01-01"+" "+str(yesterday) 
 print(dates)
 keywords=[
-    "zoom","teams","skype","hangouts",
+    "zoom","teams","skype","hangouts","teletrabajo","videollamada","videoconferencia",
     "whatsapp", "telegram","viber", "tiktok",
     "refugiados", "inmigracion", "nacionalismo", "corrupcion", "juicio", "guerra comercial",
     "coronavirus", "pandemia", "infeccion", "medico",
-    "amazon", "netflix", "hbo", "rakuten", "team","cabify", "taxi", "glovo", "just eat", "deliveroo", "uber eats",
-    "comida a domicilio", "hacer deporte", "yoga", "meditacion",
-    "teletrabajo","videollamada","videoconferencia","cursos online"
+    "amazon", "netflix", "hbo", "rakuten", "steam",
+    "cabify", "taxi","glovo", "just eat", "deliveroo", "uber eats",
+    "comida a domicilio","hacer deporte", "yoga", "meditacion","cursos online"
+    
 ]
 
 pytrends = TrendReq(hl='ES', tz=0)
@@ -40,4 +42,4 @@ for k in keywords:
 result.columns = result.columns.droplevel(0)
 df1=result.unstack(level=-1)
 df2=pd.DataFrame(df1)
-df2.to_csv("../tmp/data_pytrends.csv")
+df2.to_csv(os.getenv("PROJECT_TMP"))

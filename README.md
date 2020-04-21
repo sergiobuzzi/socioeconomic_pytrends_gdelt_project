@@ -1,6 +1,15 @@
 # Socioeconomic Pytrends project.
 
+Automated ETL involving the following tools:
+
+- Cloud Scheduler
+- Pub/Sub: Triggers the Cloud Function
+- Cloud Function: Request data to Google TRends
+- Storage: Data Lake for ingestion
+- BigQuery: Data Warehouse. Query schedule weekly
+- Data Studio: Dashboard of results 
 ------------------------------
+
 
 Google Trends is a Google tool that analyses the popularity of top search queries in Google Search across various regions and languages. Basically, what people are looking for in Google.
 
@@ -68,6 +77,18 @@ Why this folder has this structure can be found here:
 
 The result can be found here: (not yet)
 
+### Bigquery:
+
+1. Go there.
+2. Create a dataset linking with GCS.
+3. Find your GCS bucket.
+4. Perform your querys
+
+In this folder you will find the sql query, in case you want to take a glance.
+
+### Data Studio:
+
+Find your tables in BigQuery and make some art
 
 -----------------------------
 
