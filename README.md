@@ -75,6 +75,41 @@ The result can be found here: (not yet)
 
 - Use the **deep sentiment analysis** of Gdelt Project to research the news media on Spain about further keywords ( https://www.gdeltproject.org ) with BigQuery  , but from the point of what people are looking for, not just what appears in the news.
 
+Interesting themes to follow with Gdelt:
+
+
+                WITH nested AS (
+                SELECT SPLIT(RTRIM(Themes,';'),';') themes FROM `gdelt-bq.gdeltv2.gkg_partitioned` WHERE _PARTITIONTIME >= "2019-09-04 00:00:00" AND _PARTITIONTIME < "2019-09-05 00:00:00" and length(Themes) > 1
+                ) select theme, count(1) cnt from nested, UNNEST(themes) as theme group by theme order by cnt desc
+
+
+Candidate keywords:
+
+- EPU_POLICY https://www.policyuncertainty.com/
+- CRISISLEX_CRISISLEXREC https://blog.gdeltproject.org/crisislex-taxonomies-now-available-in-gkg/
+- EPU_POLICY_GOVERNMENT
+- MEDICAL
+- ARMEDCONFLICT
+- ARREST
+- SCIENCE
+- PROTEST	
+- ECON_STOCKMARKET 
+- TERROR
+- MILITARY
+- IDEOLOGY
+- CORRUPTION
+- WB_2837_IMMIGRATION
+- TRANSPARENCY
+- EXTREMISM
+- REFUGEES
+- WB_1235_CENTRAL_BANKS
+- UNEMPLOYMENT
+- REBELLION
+- POLITICAL_TURMOIL
+- SCANDAL
+- ECON_INFLATION
+- SURVEILLANCE
+
 - Use other Python APis to track Stock Markets on time.
 
 
