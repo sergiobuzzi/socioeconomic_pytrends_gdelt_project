@@ -19,7 +19,11 @@
 
 # 1. Introduction.
 
-Automated ETL involving the following tools:
+Based on this article:
+
+https://towardsdatascience.com/creation-of-an-etl-in-google-cloud-platform-for-automated-reporting-8a0309ee8a78
+
+We have thought on showing a social point of view of the pandemic's impact in Spain, through an automated ETL involving the following tools:
 
 - Cloud Scheduler: Schedule the Pub/Sub topic
 - Pub/Sub: Triggers the Cloud Function
@@ -205,13 +209,12 @@ Candidate keywords:
 
 Project by César Castares and Alberto Vargas.
 
-César:
+- César: https://www.linkedin.com/in/cesar-castanon/
 
-        https://www.linkedin.com/in/cesar-castanon/
+- Alberto: https://www.linkedin.com/in/alberto-vargas-pina/
 
-Alberto:
+Thanks to Alex Masip, Head of Data at Labelium España https://www.linkedin.com/in/alexmasip/
 
-        https://www.linkedin.com/in/alberto-vargas-pina/
 
 ---------------------
 
