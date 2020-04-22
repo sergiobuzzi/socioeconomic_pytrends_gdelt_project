@@ -1,14 +1,26 @@
 # Socioeconomic Pytrends project.
 
+https://datastudio.google.com/s/l8LMcyWKQXQ
+
+1. Introduction
+2. How to use mentioned tools
+3. Results
+4. Analyzing results
+5. Conclusion
+6. Further improvements
+7. Documentation
+------------------------------
+
+# 1. Introduction.
+
 Automated ETL involving the following tools:
 
-- Cloud Scheduler
+- Cloud Scheduler: Schedule the Pub/Sub topic
 - Pub/Sub: Triggers the Cloud Function
-- Cloud Function: Request data to Google TRends
-- Storage: Data Lake for ingestion
-- BigQuery: Data Warehouse. Query schedule weekly
+- Cloud Function: Python script requesting data from Google Trends and sending to Cloud Storage
+- Cloud Storage: Data Lake
+- BigQuery: Data Warehouse. Performs a weekly query modifying tables
 - Data Studio: Dashboard of results 
-------------------------------
 
 
 Google Trends is a Google tool that analyses the popularity of top search queries in Google Search across various regions and languages. Basically, what people are looking for in Google.
@@ -19,8 +31,10 @@ Google trends searches the maximum on the specified period, makes that maximum t
 
 - If you request each of your keywords separately, each keyword will be averaged on time by its own top.
 
+------------------
 
-# Project pipeline, how to:
+
+# 2. How to use mentioned tools
 
 ### Create a new project and get your credentials here:
 
@@ -47,8 +61,9 @@ Google trends searches the maximum on the specified period, makes that maximum t
     - Habits: Comida a domicilio, hacer deporte, yoga, meditación.
     - Improvement: Teletrabajo, videollamada, videoconferencia, cursos online.
 
-We have our reasons to not include keyword category within the code, in spite of it could be an accuracy improvement for keywords like "teams".
+- We have our reasons to not include keyword category within the code, in spite of it could be an accuracy improvement for keywords like "teams".
 
+- We are intentionally requesting all information from the same start date while end date varies with time, we believe this is the most accurate way of requesting from Google Trends due to how Google process the asked data.
 
 Why this folder has this structure can be found here:
 
@@ -90,9 +105,41 @@ In this folder you will find the sql query, in case you want to take a glance.
 
 Find your tables in BigQuery and make some art
 
------------------------------
+---------------------------
 
-# Further improvements:
+# 3. Results
+
+Results can be found here:
+
+https://datastudio.google.com/s/iV7dE0FHYSM
+
+-------------------------
+# 4. Analyzing results
+
+
+Do you remember when refugees or nationalism were main topic on TV in Spain? The topic will come back for other reasons like an economical crisis across Europe?  How long is going to be the keyword "economical war" the main topic of some politicians?
+
+The circumstances we live right now are temporal or it will be part of our future? 
+
+People will spend more money on non necessary purchases like ordering food from home?
+
+Remote working will last after the crisis?
+ 
+People will loose confidence in WhatsApp privacy? Tiktok will be part of our culture as a result of the lockdown?
+
+At this date, wednesday 22.04.20, it is not easy to give an answer, nevertheless this dashboard would help us to understand the short term past, the present, and maybe the close future.
+
+-----------------------
+# 5. Conclusion 
+
+Personally, this project has help me to reinforce my skills developing an ETL pipeline in Google Cloud environment.
+
+I am exited to start the improvements, use Gdelt and Twitter APIs to generate a dashboard portraying the spanish social situation.
+
+---------------------
+
+
+# 6. Further improvements.
 
 - Use the **deep sentiment analysis** of Gdelt Project to research the news media on Spain about further keywords ( https://www.gdeltproject.org ) with BigQuery  , but from the point of what people are looking for, not just what appears in the news.
 
@@ -133,8 +180,9 @@ Candidate keywords:
 
 - Use other Python APis to track Stock Markets on time.
 
+----------------------------
 
-# Documentation:
+# 7. Documentation:
 
 - What is Google Trends (no code)   https://www.karinakumykova.com/2019/03/calculate-search-interest-with-pytrends-api-and-python/
 
@@ -158,6 +206,8 @@ César:
 Alberto:
 
         https://www.linkedin.com/in/alberto-vargas-pina/
+
+---------------------
 
 
 
