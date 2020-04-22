@@ -1,7 +1,5 @@
 # Socioeconomic Pytrends project.
 
-<iframe width="600" height="1775" src="https://datastudio.google.com/embed/reporting/544ece8b-ee18-4546-9531-ad22e55b2c9f/page/Ob8MB" frameborder="0" style="border:0" allowfullscreen></iframe>
-
 1. Introduction
 2. How to use mentioned tools
 3. Results
@@ -9,6 +7,14 @@
 5. Conclusion
 6. Further improvements
 7. Documentation
+
+
+![alt](pics/trends_example.png)
+
+
+- https://datastudio.google.com/s/iV7dE0FHYSM 
+
+
 ------------------------------
 
 # 1. Introduction.
@@ -211,5 +217,6 @@ Alberto:
 
 
 
-![alt](mrdogscience.jpeg " ")
+![alt](pics/mrdogscience.jpeg)
+
 
