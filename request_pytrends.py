@@ -18,7 +18,7 @@ keywords=[
     "whatsapp", "telegram","viber", "tiktok",
     "refugiados", "inmigracion", "nacionalismo", "corrupcion", "juicio", "guerra comercial",
     "coronavirus", "pandemia", "infeccion", "medico",
-    "amazon", "netflix", "hbo", "rakuten", "steam",
+    "disney","amazon", "netflix", "hbo", "rakuten", "steam",
     "cabify", "taxi","glovo", "just eat", "deliveroo", "uber eats",
     "comida a domicilio","hacer deporte", "yoga", "meditacion","cursos online"
     
