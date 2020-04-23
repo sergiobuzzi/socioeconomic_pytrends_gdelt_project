@@ -89,7 +89,10 @@ Why this folder has this structure can be found here:
 3. Give a name to your pub/sub topic
 4. Runtime: Python 3.7
 5. Stage bucket: The bucket you created in GCS
-6. Advanced options, Region: Select the same region than the created bucket in GCS (this is very important) 
+6. Advanced options:
+    - Region: Select the same region than the created bucket in GCS (this is very important)
+    - Environment variables: In the code, for private stuff like paths or keywords, instead of writing them, do something like <os.getenv("PROJECT_NAME")> (check the code). Then in this section, write PROJECT_NAME and its real value, both without the str symbol (" "). It looks like it does not work with os.dotenv.
+ 
 
 ### Go to Cloud Scheduler to schedule your topic
 
